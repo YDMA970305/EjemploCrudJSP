@@ -12,7 +12,7 @@ import java.sql.SQLException;
  */
 public class ConnectionDbMysql {
 
-    private static final String DB_URL = "jdbc:mysql://localhost:3036/ejemplocrudjsp";
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/ejemplocrudjsp";
     private static final String USER = "root";
     private static final String PASSWORD = "123456";
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
