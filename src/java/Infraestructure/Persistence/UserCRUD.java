@@ -59,6 +59,7 @@ public class UserCRUD {
             }
             throw e;
         }
+        
     }
 
     public void updateUser(User user) throws SQLException, UserNotFoundException {
@@ -79,11 +80,13 @@ public class UserCRUD {
             }
         } catch (SQLException e) {
             throw e;
+            
         }
     }
 
     public void deleteUser(String id) throws SQLException, UserNotFoundException {
         String query = "DELETE FROM user WHERE id = ?";
+        
         try (Connection conn = ConnectionDbMysql.getConnection();
                 PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setString(1, id);

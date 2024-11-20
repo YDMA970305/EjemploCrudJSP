@@ -36,11 +36,9 @@
         case "showCreateForm":
             showCreateUserForm(request, response);
             break;
-
         case "create":
             handleCreateUser(request, response, session, userService);
             break;
-
         case "showFindForm":
             showFindForm(request, response, session, userService);
             break;
@@ -106,7 +104,7 @@
     //Metodo para crear un nuevo usuario (deslues de enviar el formualio de creaci?n)
     private void handleCreateUser(HttpServletRequest request, HttpServletResponse response, HttpSession session, UserService userService)
             throws ServletException, IOException {
-        String nombre = request.getParameter("nombre");
+        String nombre = request.getParameter("name");
         String last_name = request.getParameter("last_name");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
@@ -136,7 +134,7 @@
     //Metodo para buscar un usuario
     private void handleSearch(HttpServletRequest request, HttpServletResponse response, HttpSession session, UserService userService)
             throws ServletException, IOException {
-        String searchCode = request.getParameter("id");
+        String searchCode = request.getParameter("code");
 
         try {
             User user = userService.getUserByCode(searchCode);
@@ -253,7 +251,7 @@
             throws ServletException, IOException {
         try {
             List<User> user = userService.getAllUser();
-            session.setAttribute("users", user); //Guardamos los usuarios en la sesion
+            session.setAttribute("user", user); //Guardamos los usuarios en la sesion
             request.getRequestDispatcher("/Views/Forms/Users/list_all.jsp").forward(request, response);
         } catch (SQLException e) {
             request.setAttribute("errorMessage", "Error de base de datos al listar los usuarios.");

@@ -35,7 +35,7 @@
                 </tr>
              </thead>
             <tbody>
-                <% List<User> users = (List<User>) request.getAttribute("user"); %>
+                <% List<User> users = (List<User>) session.getAttribute("user"); %>
                 <% if (users != null && !users.isEmpty()) { %>
                     <% for (User user : users) { %>
                         <tr>

@@ -45,11 +45,11 @@
         <% } %>
 
         <%-- Formulario de búsqueda de usuario --%>
-        <form id="userForm" action="<%= request.getContextPath() %>/Controllers/UserController.jsp?action=find" method="post">
+        <form id="userForm" action="<%= request.getContextPath() %>/Controllers/UserController.jsp?action=search" method="post">
            <%-- el valor cambiará según la acción realizada --%>
             <input type="hidden" name="action" id="actionInput" value="search">
 
-            <label for="searchCode">Código del Usuario:</label>
+            <label for="searchedCode">Código del Usuario:</label>
             <input type="text" name="code" id="code" required value="
                 <%= (session.getAttribute("searchedUser") != null) ? ((User)session.getAttribute("searchedUser")).getId() : "" %>">
 
